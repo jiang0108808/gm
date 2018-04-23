@@ -1,0 +1,81 @@
+
+.mask {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000
+}
+
+.block {
+    border-radius:5px;  /*圆角*/
+    border:10px solid rgba(204,204,204,.5);  /*边框*/
+    width:500px;  /*宽度*/
+    height: 400px;  /*高度*/
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-left: -250px;
+    padding: 10px 10px;
+    background-color: white;
+    z-index: 1001;
+}
+
+.content {
+
+    border:0px solid red;  /*边框*/
+    position: absolute;
+    width:400px;  /*宽度*/
+    height: 60px;  /*高度*/
+    left: 50%;
+    margin-left: -200px;
+    padding: 10px;
+}
+
+.permit {
+    border:0px solid red;  /*边框*/
+    position: absolute;
+    width:400px;  /*宽度*/
+    height: 200px;  /*高度*/
+    top:80px;
+    left: 50%;
+    margin-left: -200px;
+    padding: 10px;
+    text-align:left;  /*左对齐*/
+}
+
+.select {
+    border:0px solid red;  /*边框*/
+    float:left;
+    padding:0 5px;
+}
+
+
+.close {
+    border:0px solid red;  /*边框*/
+    position: absolute;
+    width:500px;  /*宽度*/
+    height: 25px;  /*高度*/
+    left: 50%;
+    margin-left: -250px;
+    bottom: 5px;
+    text-align:center;  /*内容居中*/
+}
+
+
+.btnclose {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: red;
+}
+
+.btndel {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: red;
+}

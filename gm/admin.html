@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript" src="assets/js/ajaxquest.js"></script>
+    <script type="text/javascript" src="assets/js/cookie.js"></script>
+    <script type="text/javascript" src="assets/js/admininfo.js"></script>
+    <script type="text/javascript" src="assets/js/whiteinfo.js"></script>
+
+    <style type="text/css">
+
+    .mainblock {
+        border-radius:5px;  /*圆角*/
+        border:1px red solid;  /*边框*/
+        width:1000px;  /*宽度*/
+        height: 25px;  /*高度*/
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        margin-left: -500px;
+        padding: 10px 10px;
+    }
+
+    .account {
+        position: absolute;
+        right: 50px;
+        bottom: 10px;
+        padding: 10px 10px;
+    }
+
+    .permit_left {
+        border-radius:5px;  /*圆角*/
+        border:1px red solid;  /*边框*/
+        width:150px;  /*宽度*/
+        height: 650px;  /*高度*/
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        margin-left: -510px;
+    }
+
+    .content_right {
+        border-radius:5px;  /*圆角*/
+        border:1px red solid;  /*边框*/
+        width:840px;  /*宽度*/
+        height: 630px;  /*高度*/
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        margin-left: -350px;
+        padding: 10px 10px;
+    }
+
+    ul {
+        list-style:none; /*将“li”默认样式“圆点”利用CSS隐藏*/
+    }
+
+    li {
+        margin-top: 10px;  /*li间距*/
+    }
+    
+
+</style>
+
+</head>
+<body>
+
+<div class='mainblock'>
+    <div class="account">
+        <span>欢迎您, </span>
+        <a href="" id="account"></a>
+    </div>
+
+    <div class="permit_left", id="permit_left">
+        <!-- 功能选择 -->
+    </div>
+
+    <div class="content_right", id="content_right">
+        <!-- 功能内容 -->
+    </div>
+</div>
+
+</body>
+
+<script type="text/javascript">
+    window.onload = function()
+    {
+        document.getElementById("account").innerHTML = cookie.get("account")
+
+        // 请求当前账号的权限
+        sendRequest('adminpermit', {}, permitResult)
+    }
+
+    // 显示权限内容
+    function permitResult(_data)
+    {
+        var _str = "<ul>"
+        for(var _key in _data)
+        {
+            _str += '<li onclick="' + "sendRequest('" + _key + "', {}, contentResult, '" + _key + "')" + '"><a href="javascript:;">' + _data[_key] + '</a></li>'
+        }
+        _str += "</ul>"
+        document.getElementById("permit_left").innerHTML = _str
+
+        // 默认选择第一个
+        var content=document.getElementById("permit_left"); 
+        var items=content.getElementsByTagName("ul"); 
+        var itemss=items[0].getElementsByTagName("li"); 
+        itemss[0].click()
+    }
+
+    function contentResult(_data, params)
+    {
+        var _resultStr = ""
+        if (params == "admininfo")
+        {
+            _resultStr = showAdmininfo(_data)
+        }
+        else if (params == "serverinfo")
+        {
+            _resultStr = _data
+        }
+        else if (params == "whitelist")
+        {
+            _resultStr = showWhiteinfo(_data)
+        }
+        else
+        {
+            _resultStr = params + "<br/>" + _data
+        }
+        
+        document.getElementById("content_right").innerHTML = _resultStr
+    }
+
+</script>
+</html>

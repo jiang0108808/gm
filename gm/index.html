@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GM</title>
+    <script type="text/javascript" src="assets/js/ajaxquest.js"></script>
+    <script type="text/javascript" src="assets/js/cookie.js"></script>
+
+<style type="text/css">
+
+    .block {
+        border-radius:5px;  /*圆角*/
+        border:1px red solid;  /*边框*/
+        width:285px;  /*宽度*/
+        height: 150px;  /*高度*/
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        margin-left: -150px;
+        padding: 10px 10px;
+    }
+
+    input[type="text"]
+    {
+      border-radius:5px;
+      border:1px solid #DDDDDD; 
+      height: 30px;
+      width: 250px;
+      font-size: 20px;
+      margin: 10px 10px;
+      padding: 0px 5px;
+    }
+
+    input[type="password"]
+    {
+      border-radius:5px;
+      border:1px solid #DDDDDD; 
+      height: 30px;
+      width: 250px;
+      font-size: 20px;
+      margin: 10px 10px;
+      padding: 0px 5px;
+    }
+
+    input[type="button"]
+    {
+      height: 30px;
+      width: 260px;
+      font-size: 20px;
+      margin: 10px 10px;
+    }
+
+</style>
+
+</head>
+<body">
+    <div class='block'>
+        <input type="text" id="account" value="" placeholder="账号"/><br/>
+        <input type="password" id="password" value="" placeholder="密码"/><br/>
+        <input type="button" id="login" value="登录"  onclick ="login()"/><br/>
+    </div>
+</body>
+
+<script type="text/javascript">
+
+    function login()
+    {
+        var _account = document.getElementById("account").value
+        var _password = document.getElementById("password").value
+        sendRequest('adminlogin', {"account":_account, "password":_password}, loginresult)
+    }
+
+    function loginresult(_data)
+    {
+        cookie.set("account", _data["account"], 0)
+        window.location.href = "admin.html"
+    }
+
+</script>
+</html>

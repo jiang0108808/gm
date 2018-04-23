@@ -1,0 +1,81 @@
+.msgmask {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000
+}
+
+.msgblock {
+    border-radius:5px;  /*圆角*/
+    border:10px solid rgba(204,204,204,.5);  /*边框*/
+    width:300px;  /*宽度*/
+    height: 200px;  /*高度*/
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-left: -150px;
+    padding: 10px 10px;
+    background-color: white;
+    z-index: 1001;
+}
+
+.msgcontent {
+    position: absolute;
+    width:280px;  /*宽度*/
+    height: 140px;  /*高度*/
+    padding: 10px;
+    text-align:center;  /*内容居中*/
+}
+
+.msgclose {
+    border:1px;  /*边框*/
+    position: absolute;
+    width:300px;  /*宽度*/
+    height: 25px;  /*高度*/
+    text-align:center;  /*内容居中*/
+    bottom: 5px;
+}
+
+.msgConfirmOk {
+    position: absolute;
+    width:50px;  /*宽度*/
+    height: 25px;  /*高度*/
+    text-align:center;  /*内容居中*/
+    margin-left: -25px;
+}
+
+.msgConfirmExOk {
+    position: absolute;
+    width:50px;  /*宽度*/
+    height: 25px;  /*高度*/
+    text-align:center;  /*内容居中*/
+    margin-left: -75px;
+}
+
+.msgConfirmExCancel {
+    position: absolute;
+    width:50px;  /*宽度*/
+    height: 25px;  /*高度*/
+    text-align:center;  /*内容居中*/
+    margin-left: 25px;
+}
+
+.msghr {
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    right: 0px;
+    border:none;
+    border-top:2px solid #555555;
+}
+
+.msgbtnclose {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: red;
+}
